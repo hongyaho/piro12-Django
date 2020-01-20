@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Ask Company{% endblock %}</title>
+    <style>
+        body {
+            background-color: #fffccf;
+        }
+    </style>
+    {% block extra_head %} {% endblock %}
+</head>
+<body>
+    <h1>Ask Company</h1>
+    <!--부모 템플릿은 block 꼭 정의 해줘야 함
+    여기서 block 이름은 content 인거지-->
+    {% block content %}
+    {% endblock %}
+
+    <hr/>
+    &copy; 2020. Ask Company  <!--&copy; : copyright 글자 나옴. 그 동그라미 안에 c 있는거-->
+    {% block extra_body %} {% endblock %}
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends "shop/layout.html" %} <!--상속 받기!!!!!!! 상속은 항상 맨 처음에 써준다-->
+ {% block content %}
+<!--상속받는 자식은 부모가 정의해준 block 써서
+ block 안에 내용 담아야함-->
+     <form action="" method="GET">
+        <input type="text" name="q" value="{{ q }}"/>
+        <input type="submit" value="search"/>
+    </form>
+
+    <ul>
+        {% for item in item_list %}
+        <li>
+            <a href="/shop/{{ item.pk }}">
+            {{ item.name }}
+            </a>
+            {{ item.price }}
+            {{ item.desc }}
+        </li>
+        {% endfor %}
+    </ul>
+
+ {% endblock %}
+
