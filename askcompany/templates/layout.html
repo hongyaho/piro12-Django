@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,9 @@
             background-color: #fffccf;
         }
     </style>
-    {% block extra_head %} {% endblock %}
+    {% block extra_head %}
+         <link rel="stylesheet" href="{% static "main.css" %}"/>
+    {% endblock %}
 </head>
 <body>
     <h1>Ask Company</h1>
@@ -19,6 +22,8 @@
 
     <hr/>
     &copy; 2020. Ask Company  <!--&copy; : copyright 글자 나옴. 그 동그라미 안에 c 있는거-->
+
+    <script src = "{% static "main.js" %}"
     {% block extra_body %} {% endblock %}
 </body>
 </html>
