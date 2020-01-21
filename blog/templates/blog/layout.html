@@ -1,9 +1,12 @@
 {% extends "layout.html" %}
+{% load fresh_static %}
 
 {% block title %}Blog by Ask Company{% endblock %}
 
 {% block extra_head %}
-    {{ block.suprt }}
+    {{ block.super }}
+    <link rel="stylesheet0" href="{% fresh_static "blog/blog.css" %}"/>
+
     <style>
 
     </style>
