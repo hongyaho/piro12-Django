@@ -4,7 +4,7 @@ from askcompany.utils import uuid_upload_to
 
 
 class Item(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=101)
     desc = models.TextField(blank=True)
     price = models.PositiveIntegerField()
     photo = models.ImageField(upload_to=uuid_upload_to)
