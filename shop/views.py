@@ -2,6 +2,8 @@ import logging
 import re
 from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
+from django.views.generic import CreateView, UpdateView
+
 from .models import Item
 from .forms import ItemForm
 
@@ -34,20 +36,23 @@ def item_detail(request, pk):
     })
 
 
-def item_new(request):
-    if request.method == 'POST':
-        form = ItemForm(request.POST, request.FILES)
-        if form.is_valid():
-            item = form.save()
-            return redirect(item)
-    else:
-        form = ItemForm()
+# def item_new(request, item=None):
+#     if request.method == 'POST':
+#         form = ItemForm(request.POST, request.FILES, instance=item)
+#         if form.is_valid():
+#             item = form.save()
+#             return redirect(item)
+#     else:
+#         form = ItemForm(instance=item)
+#
+#     return render(request, 'shop/item_form.html', {
+#         'form': form,
+#     })
+#
+#
+# def item_edit(request, pk):
+#     item = get_object_or_404(Item, pk=pk)
+#     return item_new(request, item)
 
-    return render(request, 'shop/item_form.html', {
-        'form': form,
-    })
-
-
-def item_edit(request, pk):
-    item = get_object_or_404(Item, pk=pk)
-    return item_new(request, item)
+item_new = CreateView.as_view(model=Item, form_class=ItemForm)
+item_edit = UpdateView.as_view(model=Item, form_class=ItemForm)
